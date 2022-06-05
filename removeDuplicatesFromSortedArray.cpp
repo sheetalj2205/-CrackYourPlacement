@@ -23,8 +23,8 @@ void removeDuplicates(vector<int> &arr){
     int j = 0;
     for(int i = 1; i<size; i++){
         if(arr[i] != arr[j]){
-            j++;
-            arr[j] = arr[i];
+            j++; 
+            arr[j] = arr[i]; //need to compare previous arr[i] with next arr[i] so assign value of previous arr[i] to arr[j]
         }
        
     }
