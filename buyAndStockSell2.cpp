@@ -16,15 +16,15 @@ int main(){
 }
 
 void sellStock(vector<int>& arr){
- int ans = 0;
- int j = 0;
- for(int i = 1; i<arr.size(); i++){
-     if(arr[i]-arr[j]>0){
-         ans += arr[i] - arr[j];
-         j = i+1;
-     }
-     else{
-         j = i;
+        int ans = 0;
+        int size = arr.size();
+        if(size == 1 || size == 0){
+            return;
+        }
+         
+ for(int i = 1; i<arr.size(); i++){ // start loop always from 1 as you need to check previous element always for avoiding runtime error
+     if(arr[i-1] < arr[i]){
+         ans += arr[i] - arr[i-1];
      }
  }
  cout<<ans<<endl;
