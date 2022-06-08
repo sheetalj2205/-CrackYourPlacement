@@ -23,7 +23,7 @@ int maxArea(vector<int>& nums) {
     int i = 0, j = nums.size()-1;
     while(i<j){
         if(nums[i]<nums[j]){
-            maxArea = max(maxArea,nums[i]*(j-i)); //find area with small height bar
+            maxArea = max(maxArea,nums[i]*(j-i)); //find area with small height bar`
             i++;
         }
         else{
