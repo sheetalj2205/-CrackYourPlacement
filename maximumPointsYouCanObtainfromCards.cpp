@@ -21,13 +21,16 @@ int main(){
 }
 
 int maxSum(vector<int>& nums, int k){
-    int ans = 0;
-    int low = 0, high = nums.size()-1;
-    while(low<nums.size() && high>=0 && k>0){
-        ans += max(nums[low], nums[high]);
-        low++;
-        high--;
-        k--;
+    int l,r = 0, ans = 0, len = nums.size()-k;
+    for(int i = 0; i<nums.size(); i++){
+        ans += nums[i];
     }
-    return ans;
+    int total = ans;
+    while(r < nums.size()){
+        ans += (nums[r] - nums[l]);
+        total = max(total,ans);
+        l++;
+        r++;
+    }
+    return total;
 }
