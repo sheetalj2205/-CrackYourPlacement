@@ -16,7 +16,7 @@ class LinkedList{
     };
     LinkedList(int arr[], int n);
     void display();
-    void insertInSortedList( int x);
+    void deleteNode(int pos);
 };
 LinkedList:: LinkedList(int arr[], int n){
     Node* last, *temp;
@@ -44,23 +44,30 @@ void LinkedList::display(){
     }
 
 }
-void LinkedList:: insertInSortedList(int x){
-    Node* start = first;
-    Node* temp = NULL;
-    while(start && start->data < x){
-        temp = start;
-        start = start->next;
-    }
-            Node* node = new Node; //here we are using three pointers try with 2 nodes only
-            node->data = x; 
-            node->next = temp->next;
-            temp->next = node;
 
+void LinkedList::deleteNode(int pos){
+    Node* p,*q;
+    if(pos == 1){
+        p = first; // assign first node to p
+        first = first->next; //point first to next node of first
+        delete p;
+    }
+    if(pos > 1){
+        p = first; //start from first
+        q = NULL;
+        for(int i = 0; i < pos-1; i++){ //go upto pos-1 as starting from 0
+            q = p;
+            p = p->next;
+        }
+        q->next = p->next; //link q to next node of p
+        delete p;
+    }
 }
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList l(arr, 5);
-    l.insertInSortedList(6);
+    l.deleteNode(1);
     l.display();
 }
 
