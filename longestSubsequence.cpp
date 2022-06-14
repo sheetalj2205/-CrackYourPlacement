@@ -23,4 +23,25 @@ int longestSubseq(string word1, int n, string word2, int m){
         return 1 + longestSubseq(word1, n-1, word2, m-1); //if both values/chars are equal then check for next chars, adding 1 because of that one similar char
     }
     return max(longestSubseq(word1, n, word2, m-1), longestSubseq(word1, n-1, word2, m)); //if chars are not equal then this condition takes max value from both the recursions
+    //------------------------------------------------------
+    // top-down approach DP
+    int dp[n+1][m+1];
+    for(int i = 0; i<n+1; i++){ //use these loops for base condition of recursive solution i.e when either length of word1 or word2 is zero
+        for(int j  = 0; j<m+1; j++){
+            if(i == 0 || j == 0){
+                dp[i][j] = 0;
+            }
+        }
+    }
+    for(int i = 1; i<n+1; i++){
+        for(int j  = 1; j<m+1; j++){
+            if(word1[i-1] == word2[j-1]){ //check if chars are equal or not
+                dp[i][j] = 1 + dp[i-1][j-1]; // if they are equal add one to the previous value of dp[i][j]      
+            }
+            else{
+                dp[i][j] = max(dp[i][j-1], dp[i-1][j]); //similar to recursive solution when chars are not equal, check one by one(take first word whole leaving second word's last or first char and vice versa ) and take max from them
+            }
+        }
+    }
+    return dp[n][m];
 }

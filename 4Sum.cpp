@@ -21,7 +21,7 @@ int main(){
 }
 
 void twoSum(vector<int>& arr, int target){
-    vector<vector<int>> ans;
+    // vector<vector<int>> ans;
     //check array size if it is less than 4 then
     if(arr.size() < 4){
         return;
@@ -30,7 +30,7 @@ void twoSum(vector<int>& arr, int target){
 sort(arr.begin(),arr.end());
 // Two Pointer Approach with two for loops
 vector<vector<int>> ans;
-for(int i = 0; i<arr.size(); i++){
+for(int i = 1; i<arr.size(); i++){
     if(arr[i-1] == arr[i]){ //fixing first value
         continue;
     }
@@ -42,7 +42,7 @@ for(int i = 0; i<arr.size(); i++){
         int low = j+1, high = arr.size()-1;
         while(low<high){ //started two pointer approach here
             int sum = arr[i] + arr[j] + arr[low] + arr[high];
-            if(sum == 0){
+            if(sum == target){
                 ans.push_back({arr[i], arr[j], arr[low], arr[high]});
                 int val = arr[low];
                 while(low<arr.size() && val == arr[low]){
@@ -53,7 +53,7 @@ for(int i = 0; i<arr.size(); i++){
                     high--;
                 }
             }
-            if(sum<0){
+            if(sum< target){
                 low++;
             }
             else{
