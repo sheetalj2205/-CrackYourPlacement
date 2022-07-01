@@ -38,23 +38,23 @@ string shortestSuperseq(string a, int n, string b, int m){
         }
 
     }
-    int i = n, j = m;
+    int i = n, j = m; // start from last
     while(i>0 && j>0){
-        if(a[i-1] == b[j-1]){
+        if(a[i-1] == b[j-1]){ //if both chars are equal then push it into string
            ans.push_back(a[i-1]);
            i--;
            j--;
         }
-        if(dp[i-1][j]>dp[i][j-1]){
+        if(dp[i-1][j]>dp[i][j-1]){ //if value of i-1 row is greater then push char of a string
             ans.push_back(a[i-1]);
             i--;
         }
-        if(dp[i-1][j]<dp[i][j-1]){
+        if(dp[i-1][j]<dp[i][j-1]){ //if value of j-1 col is greater then push char of b string
             ans.push_back(b[j-1]);
             j--;
         }
     }
-    while(i>0){
+    while(i>0){ //it is possible that string a is left and string b is reached at 0 then push all left chars of string a in ans
         ans.push_back(a[i-1]);
         i--;
     }
