@@ -5,7 +5,7 @@ using namespace std;
 void longestPalindromicSubstring(string word1,int n, string word2, int m);
 int main(){
     string word1;
-    cout<<"Enter strings"<<endl;
+    cout<<"Enter string"<<endl;
     cin>>word1;
     int n = word1.size();
     string word2(word1);
