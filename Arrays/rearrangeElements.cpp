@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Approach: take two pointers for pos and neg value and increase them with 2 whenever you find any neg or pos value as array should have alternative pos and neg values
 void rearrangeArray(vector<int>& arr);
 
 int main(){
