@@ -32,6 +32,7 @@ string longestSubseq(string a, int n, string b, int m){
             }
     }
 }
+//this code is not working of printing the repeating subsequence
 string ans;
 int i = n, j = m;
 while(i>0 && j>0){
