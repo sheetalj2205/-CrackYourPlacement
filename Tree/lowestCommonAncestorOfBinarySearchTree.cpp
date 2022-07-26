@@ -1,5 +1,5 @@
 /*
-Approach: Use property of binary tree that all the elements greater than root lies on right side and smaller elements on left side
+Approach: Use property of binary search tree that all the elements greater than root lies on right side and smaller elements on left side
 */
 
 
