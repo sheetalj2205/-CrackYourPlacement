@@ -45,13 +45,13 @@ string shortestSuperseq(string a, int n, string b, int m){
            i--;
            j--;
         }
-        if(dp[i-1][j]>dp[i][j-1]){ //if value of i-1 row is greater then push char of a string
-            ans.push_back(a[i-1]);
-            i--;
-        }
-        if(dp[i-1][j]<dp[i][j-1]){ //if value of j-1 col is greater then push char of b string
+        else if(dp[i-1][j]<dp[i][j-1]){ //if value of j-1 col is greater then push char of b string
             ans.push_back(b[j-1]);
             j--;
+        }
+        else{ //if value of i-1 row is greater then push char of a string
+            ans.push_back(a[i-1]);
+            i--;
         }
     }
     while(i>0){ //it is possible that string a is left and string b is reached at 0 then push all left chars of string a in ans
